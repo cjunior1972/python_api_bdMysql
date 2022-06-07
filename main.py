@@ -11,4 +11,11 @@ vendas = {
 
 @app.get("/")
 def home():
-    return "Minha api está no ar"
+    return { "vendas" :  len(vendas)}
+
+
+@app.get("/vendas/{id_venda}")
+def pegar_venda(id_venda: int):
+    return vendas[id_venda]
+
+
