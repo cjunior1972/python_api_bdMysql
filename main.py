@@ -16,6 +16,9 @@ def home():
 
 @app.get("/vendas/{id_venda}")
 def pegar_venda(id_venda: int):
-    return vendas[id_venda]
+    if id_venda in vendas:
+        return vendas[id_venda]
+    else:
+        return {"Erro" : "Erro:" + str(400) + " ID:" + str(id_venda) + " inexistente"}
 
 
